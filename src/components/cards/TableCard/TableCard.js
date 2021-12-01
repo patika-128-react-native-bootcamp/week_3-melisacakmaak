@@ -3,7 +3,8 @@ import {View, Text, TouchableWithoutFeedback} from 'react-native';
 import styles from './TableCard.style';
 
 export default function MenuCard({item, onSelect}) {
-  const tableColor = item.isActive ? 'green' : '#bdbdbd';
+  const tableColor = item.isActive ? '#519657' : '#c2c2c2';
+  const tableLabel = item.isActive ? '#519657' : '#c2c2c2';
 
   return (
     <TouchableWithoutFeedback onPress={onSelect}>
@@ -15,7 +16,7 @@ export default function MenuCard({item, onSelect}) {
             </Text>
           ))}
         </View>
-        <View style={styles.name_container}>
+        <View style={[styles.name_container, {backgroundColor: tableLabel}]}>
           <Text style={styles.name_label}>{item.name}</Text>
         </View>
       </View>

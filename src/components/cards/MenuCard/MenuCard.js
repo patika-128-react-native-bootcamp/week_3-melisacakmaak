@@ -1,7 +1,6 @@
 import React from 'react';
 import {View, Text, TouchableWithoutFeedback, Image} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-
 import styles from './MenuCard.styles';
 
 export default function MenuCard({item, onSelect}) {

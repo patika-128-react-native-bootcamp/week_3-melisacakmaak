@@ -6,7 +6,6 @@ import {
   ImageBackground,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-
 import styles from './ProductCard.styles';
 
 export default function ProductCard({item, onSelect}) {

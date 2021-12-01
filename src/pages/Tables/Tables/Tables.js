@@ -1,6 +1,6 @@
 import {useNavigation, useRoute} from '@react-navigation/core';
 import React, {useEffect, useState} from 'react';
-import {SafeAreaView, FlatList} from 'react-native';
+import {SafeAreaView, FlatList, Alert} from 'react-native';
 
 import styles from './Tables.styles';
 import TableCard from '../../../components/cards/TableCard';
@@ -12,7 +12,11 @@ export default function Table() {
   const [tables, setTables] = useState(mock_data.tables);
 
   function handleNavigateTableDetail(selectedTable) {
-    navigation.navigate('TableUpdatePage', {table: selectedTable});
+    if (selectedTable.orders.length === 0) {
+      Alert.alert('this table is empty');
+    } else {
+      navigation.navigate('TableUpdatePage', {table: selectedTable});
+    }
   }
 
   const renderTables = ({item}) => (
@@ -29,6 +33,7 @@ export default function Table() {
     const newTables = [...tables];
     newTables[updatedTableIndex] = updatedTable;
     setTables(newTables);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [route.params]);
 
   return (

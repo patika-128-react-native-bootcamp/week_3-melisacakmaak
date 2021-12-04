@@ -1,7 +1,6 @@
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createDrawerNavigator} from '@react-navigation/drawer';
-
 import MenuStack from './MenuStack';
 import TableStack from './TableStack';
 import ProductsStack from './ProductsStack';
@@ -12,7 +11,11 @@ const Drawer = createDrawerNavigator();
 export default function Navigation() {
   return (
     <NavigationContainer>
-      <Drawer.Navigator screenOptions={{headerShown: false}}>
+      <Drawer.Navigator
+        screenOptions={{
+          headerShown: false,
+          drawerActiveTintColor: '#ab47bc',
+        }}>
         <Drawer.Screen
           name="ProductsStack"
           component={ProductsStack}
@@ -21,7 +24,6 @@ export default function Navigation() {
             drawerIcon: ({size, color}) => (
               <Icon name="food-croissant" color={color} size={size} />
             ),
-            drawerActiveTintColor: '#ab47bc',
           }}
         />
         <Drawer.Screen
@@ -32,7 +34,6 @@ export default function Navigation() {
             drawerIcon: ({size, color}) => (
               <Icon name="book-open-page-variant" color={color} size={size} />
             ),
-            drawerActiveTintColor: '#ab47bc',
           }}
         />
         <Drawer.Screen
@@ -43,7 +44,6 @@ export default function Navigation() {
             drawerIcon: ({size, color}) => (
               <Icon name="table-furniture" color={color} size={size} />
             ),
-            drawerActiveTintColor: '#ab47bc',
           }}
         />
       </Drawer.Navigator>

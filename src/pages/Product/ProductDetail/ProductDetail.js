@@ -3,6 +3,9 @@ import React from 'react';
 import {View, SafeAreaView, Text, ScrollView, Image} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import styles from './ProductDetail.styles';
+import {LogBox} from 'react-native';
+
+LogBox.ignoreLogs(['If you want to use Reanimated 2']);
 
 export default function ProductDetail() {
   const route = useRoute();
@@ -23,10 +26,10 @@ export default function ProductDetail() {
           {product.isPopular && <Icon name="star" color="orange" size={25} />}
         </View>
         <ScrollView horizontal bounces={false}>
-          {product.ingredients.map((ing, ind) => {
+          {product.ingredients.map((ingredient, index) => {
             return (
-              <View style={styles.badge_container}>
-                <Text style={styles.badge_label}>{ing}</Text>
+              <View style={styles.badge_container} key={index}>
+                <Text style={styles.badge_label}>{ingredient}</Text>
               </View>
             );
           })}

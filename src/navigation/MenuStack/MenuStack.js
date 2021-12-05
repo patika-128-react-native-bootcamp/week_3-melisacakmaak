@@ -1,24 +1,35 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-
 import Menu from '../../pages/Menu/Menu';
 import MenuDetail from '../../pages/Menu/MenuDetail';
 import CreateMenu from '../../pages/Menu/CreateMenu';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const Stack = createNativeStackNavigator();
 
-export default function MenuStck() {
+export default function MenuStack({navigation}) {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+      screenOptions={{
+        headerTintColor: 'black',
+        headerTitleStyle: {
+          fontWeight: '300',
+        },
+
+        headerBackTitleVisible: false,
+        headerLeft: () => (
+          <Icon
+            name="view-headline"
+            color="#ab47bc"
+            size={24}
+            onPress={() => navigation.openDrawer()}
+          />
+        ),
+      }}>
       <Stack.Screen
         name="MenuPage"
         component={Menu}
         options={{
-          headerTintColor: 'black',
-          headerTitleStyle: {
-            fontWeight: '300',
-          },
-          headerBackTitleVisible: false,
           headerTitle: 'Menu',
         }}
       />
@@ -26,11 +37,6 @@ export default function MenuStck() {
         name="CreateMenuPage"
         component={CreateMenu}
         options={{
-          headerTintColor: 'black',
-          headerTitleStyle: {
-            fontWeight: '300',
-          },
-          headerBackTitleVisible: false,
           headerTitle: 'Create Menu',
         }}
       />
@@ -38,11 +44,6 @@ export default function MenuStck() {
         name="MenuDetailPage"
         component={MenuDetail}
         options={{
-          headerTintColor: 'black',
-          headerTitleStyle: {
-            fontWeight: '300',
-          },
-          headerBackTitleVisible: false,
           headerTitle: 'Menu Detail',
         }}
       />

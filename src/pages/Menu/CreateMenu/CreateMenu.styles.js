@@ -1,8 +1,9 @@
-import {Dimensions, StyleSheet} from 'react-native';
+import {StyleSheet} from 'react-native';
 
 export default StyleSheet.create({
   container: {
-    flex: 1,
+    flexDirection: 'row',
+    margin: 10,
   },
   menu_name: {
     fontSize: 20,

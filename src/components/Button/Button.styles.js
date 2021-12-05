@@ -5,13 +5,13 @@ import radius from '../../styles/radius';
 const base_styles = StyleSheet.create({
   container: {
     margin: spacing.large,
-    padding: spacing.normal,
+    padding: spacing.large,
     borderRadius: radius.smooth,
     alignItems: 'center',
   },
   text: {
     fontWeight: 'bold',
-    fontSize: 12,
+    fontSize: 15,
   },
 });
 
@@ -30,7 +30,7 @@ export default {
   outline: StyleSheet.create({
     container: {
       borderWidth: 1,
-      borderRadius: '#37474f',
+      borderColor: '#37474f',
       ...base_styles.container,
     },
     text: {

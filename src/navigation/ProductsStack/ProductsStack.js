@@ -1,35 +1,40 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-
 import Products from '../../pages/Product/Products';
 import ProductDetail from '../../pages/Product/ProductDetail';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const Stack = createNativeStackNavigator();
 
-export default function ProductsStack() {
+export default function ProductsStack({navigation}) {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+      screenOptions={{
+        headerTintColor: 'black',
+        headerTitleStyle: {
+          fontWeight: '300',
+        },
+        headerBackTitleVisible: false,
+        headerLeft: () => (
+          <Icon
+            name="view-headline"
+            color="#ab47bc"
+            size={24}
+            onPress={() => navigation.openDrawer()}
+          />
+        ),
+      }}>
       <Stack.Screen
-        name="PrdctsPage"
+        name="ProductsPage"
         component={Products}
         options={{
-          headerTintColor: 'black',
-          headerTitleStyle: {
-            fontWeight: '300',
-          },
-          headerBackTitleVisible: false,
           headerTitle: 'Products',
         }}
       />
       <Stack.Screen
-        name="PrdctDtlPage"
+        name="ProductsDetailPage"
         component={ProductDetail}
         options={{
-          headerTintColor: 'black',
-          headerTitleStyle: {
-            fontWeight: '300',
-          },
-          headerBackTitleVisible: false,
           headerTitle: 'Product Detail',
         }}
       />

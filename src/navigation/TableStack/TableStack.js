@@ -1,36 +1,41 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import Tables from '../../pages/Tables/Tables';
+import TableUpdate from '../../pages/Tables/TableUpdate';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const Stack = createNativeStackNavigator();
 
-import Tables from '../../pages/Tables/Tables';
-import TableUpdate from '../../pages/Tables/TableUpdate';
-
-export default function TableStack() {
+export default function TableStack({navigation}) {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+      screenOptions={{
+        headerTintColor: 'black',
+        headerTitleStyle: {
+          fontWeight: '300',
+        },
+        headerBackTitleVisible: false,
+        headerLeft: () => (
+          <Icon
+            name="view-headline"
+            color="#ab47bc"
+            size={24}
+            onPress={() => navigation.openDrawer()}
+          />
+        ),
+      }}>
       <Stack.Screen
         name="TablesPage"
         component={Tables}
         options={{
-          headerTintColor: 'black',
-          headerTitleStyle: {
-            fontWeight: '300',
-          },
-          headerBackTitleVisible: false,
-          headerTitle: 'Menu',
+          headerTitle: 'Table',
         }}
       />
       <Stack.Screen
         name="TableUpdatePage"
         component={TableUpdate}
         options={{
-          headerTintColor: 'black',
-          headerTitleStyle: {
-            fontWeight: '300',
-          },
-          headerBackTitleVisible: false,
-          headerTitle: 'Menu',
+          headerTitle: 'Table Uptade',
         }}
       />
     </Stack.Navigator>

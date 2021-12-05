@@ -1,11 +1,15 @@
 import {Dimensions, StyleSheet} from 'react-native';
+import radius from '../../../styles/radius';
+import spacing from '../../../styles/spacing';
+
+const deviceSize = Dimensions.get('window');
 
 export default StyleSheet.create({
   container: {
     flex: 1,
   },
   image: {
-    height: Dimensions.get('window').height / 4,
+    height: deviceSize.height / 4,
     backgroundColor: '#e0e0e0',
   },
   name_label: {
@@ -16,30 +20,30 @@ export default StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    padding: 5,
+    padding: spacing.tiny,
   },
   description: {
-    margin: 5,
+    margin: spacing.tiny,
     fontSize: 12,
   },
   description_container: {
     flex: 1,
   },
   price: {
-    margin: 5,
+    margin: spacing.tiny,
     fontSize: 35,
     textAlign: 'right',
     fontWeight: 'bold',
   },
   badge_container: {
     backgroundColor: '#37474f',
-    margin: 3,
-    borderRadius: 10,
-    padding: 5,
+    margin: spacing.small,
+    borderRadius: radius.soft,
+    padding: spacing.small,
   },
   badge_label: {
     fontSize: 10,
     color: '#e0e0e0',
-    fontWeight: 'bold',
+    fontWeight: '500',
   },
 });

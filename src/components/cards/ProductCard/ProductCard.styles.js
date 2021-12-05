@@ -3,6 +3,12 @@ import {Dimensions, StyleSheet} from 'react-native';
 const deviceSize = Dimensions.get('window');
 
 export default StyleSheet.create({
+  container: {
+    borderWidth: 1,
+    backgroundColor: '#bdbdbd',
+    margin: 10,
+    top: 5,
+  },
   image: {
     backgroundColor: '#bdbdbd',
     height: deviceSize.height / 5,
